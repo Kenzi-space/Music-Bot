@@ -9,7 +9,7 @@ client.queue = new Map()
 client.config = {
   prefix: process.env.PREFIX
 }
-
+""
 //Loading Events
 fs.readdir(__dirname + "/events/", (err, files) => {
   if (err) return console.error(err);
