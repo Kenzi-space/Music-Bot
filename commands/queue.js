@@ -96,7 +96,7 @@ var generateQueueEmbed = (message, queue) => {
         const embed = new MessageEmbed()
             .setTitle("Song Queue\n")
             .setThumbnail(message.guild.iconURL())
-            .setColor("#6ED590")
+            .setColor(message.guild.me.displayHexColor)
             .setDescription(
                 `**Current Song - [${queue[0].title}](${queue[0].url})**\n\n${info}`
             );

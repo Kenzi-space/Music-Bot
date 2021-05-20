@@ -25,8 +25,8 @@ const queue = message.client.queue.get(message.guild.id);
         queue.connection.dispatcher.end();
 
         const embedB = new MessageEmbed()
-            .setColor("#6ED590")
-            .setTitle("<a:yes:838026237255221318>•Succes Stopped!")
+            .setColor(message.guild.me.displayHexColor)
+            .setTitle("Succes Stopped!")
             .setDescription(`**${message.author}** stoped the music`);
 
         queue.textChannel.send(embedB).catch(console.error);

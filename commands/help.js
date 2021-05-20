@@ -18,7 +18,7 @@ module.exports = {
 
         let embed = new MessageEmbed()
         .setAuthor("Commands of "+client.user.username)
-        .setColor("#6ED590")
+        .setColor(message.guild.me.displayHexColor)
         .setDescription(allcmds)
         .setFooter(`To get info of each command you can do ${client.config.prefix}help [command]`)
 
@@ -30,7 +30,7 @@ module.exports = {
             if(!command)return message.channel.send("Unknown Command")
             let commandinfo = new MessageEmbed()
             .setTitle("Command: "+command.info.name+" info")
-            .setColor("YELLOW")
+            .setColor(message.guild.me.displayHexColor)
             .setDescription(`
 Name: ${command.info.name}
 Description: ${command.info.description}

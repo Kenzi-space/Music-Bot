@@ -111,12 +111,12 @@ const songdurm = String(song.durationm).padStart(2, '0'); // format the time
   const songdurs = String(song.durations).padStart(2, '0'); // same ^^
   
     const playingEmbed = new Discord.MessageEmbed()
-     .setColor("#6ED590")
-      .setTitle("<a:dj:813592287807930450> ・ Started Playing Music!")
+     .setColor(message.guild.me.displayHexColor)
+      .setTitle(" ・ Started Playing Music!")
      
-      .addField('Now Playing',`<a:song:841859625451388948>・**[${song.title}](${song.url})**`)
+      .addField('Now Playing',`🎵・**[${song.title}](${song.url})**`)
     
-      .addField('Requested by:',`<a:tick:842904315990638594>・${song.user}`)
+      .addField('Requested by:',`・${song.user}`)
       .setThumbnail(
         song.thumbnail ||
           "https://cdn.iconscout.com/icon/free/png-256/youtube-85-226402.png"
@@ -157,8 +157,8 @@ const songdurm = String(song.durationm).padStart(2, '0'); // format the time
           if (!canModifyQueue(member)) return;
           queue.connection.dispatcher.end();
           const skipEmbed = new MessageEmbed()
-            .setColor("#6ED590")
-          .setTitle("<a:yes:838026237255221318> •Succes skipped")
+            .setColor(message.guild.me.displayHexColor)
+          .setTitle("Succes skipped")
             .setDescription(`⏭ skipped the song`);
 
           queue.textChannel.send(skipEmbed).catch(console.error);
@@ -172,8 +172,8 @@ const songdurm = String(song.durationm).padStart(2, '0'); // format the time
             queue.playing = !queue.playing;
             queue.connection.dispatcher.pause(true);
             const pausedEmbed = new MessageEmbed()
-              .setColor("#6ED590")
-              .setTitle("<a:yes:838026237255221318>•Succes paused")
+              .setColor(message.guild.me.displayHexColor)
+              .setTitle("Succes paused")
               .setDescription(`⏸ paused the music`);
 
             queue.textChannel.send(pausedEmbed).catch(console.error);
@@ -181,8 +181,8 @@ const songdurm = String(song.durationm).padStart(2, '0'); // format the time
             queue.playing = !queue.playing;
             queue.connection.dispatcher.resume();
             const resumedEmbed = new MessageEmbed()
-              .setColor("#6ED590")
-              .setTitle("<a:yes:838026237255221318>•Succes resumed")
+              .setColor(message.guild.me.displayHexColor)
+              .setTitle("Succes resumed")
               .setDescription(`▶ resumed the music`);
 
             queue.textChannel.send(resumedEmbed).catch(console.error);
@@ -218,8 +218,8 @@ case "🔇":
           queue.connection.dispatcher.setVolumeLogarithmic(queue.volume / 100);
          
     const voll = new MessageEmbed()
-      .setColor("#6ED590")
-      .setTitle("<a:yes:838026237255221318>•Succes set")
+      .setColor(message.guild.me.displayHexColor)
+      .setTitle("Succes set")
       .setDescription(`Volume set to: **${queue.volume}**`);
 
     return queue.textChannel.send(voll).catch(console.error);
@@ -241,8 +241,8 @@ case "🔇":
           else queue.volume = queue.volume + 10;
           queue.connection.dispatcher.setVolumeLogarithmic(queue.volume / 100);
          const vol = new MessageEmbed()
-      .setColor("#6ED590")
-      .setTitle("<a:yes:838026237255221318>•Succes set")
+      .setColor(message.guild.me.displayHexColor)
+      .setTitle("Succes set")
       .setDescription(`Volume set to: ****${queue.volume}****`);
 
     return queue.textChannel.send(vol).catch(console.error);
@@ -252,8 +252,8 @@ case "🔇":
           if (!canModifyQueue(member)) return;
           queue.loop = !queue.loop;
           const loopEmbed = new MessageEmbed()
-            .setColor("#6ED590")
-            .setTitle("<a:yes:838026237255221318>•Succes loop")
+            .setColor(message.guild.me.displayHexColor)
+            .setTitle("Succes loop")
             .setDescription(
               `🔁 Loop is now ${queue.loop ? "**on**" : "**off**"}`
             );
@@ -276,8 +276,8 @@ case "🔇":
           }
           message.client.queue.set(message.guild.id, queue);
           const shuffledEmbed = new MessageEmbed()
-            .setColor("#6ED590")
-            .setTitle("<a:yes:838026237255221318>•Succes shuffled")
+            .setColor(message.guild.me.displayHexColor)
+            .setTitle("Succes shuffled")
             .setDescription(`🔀 shuffled the queue`);
 
           queue.textChannel.send(shuffledEmbed).catch(console.error);
@@ -288,8 +288,8 @@ case "🔇":
           if (!canModifyQueue(member)) return;
           queue.songs = [];
           const stopEmbed = new MessageEmbed()
-            .setColor("#6ED590")
-            .setTitle("<a:yes:838026237255221318>•Succes stopped!")
+            .setColor(message.guild.me.displayHexColor)
+            .setTitle("Succes stopped!")
             .setDescription(`⏹ stoped the music`);
 
           queue.textChannel.send(stopEmbed).catch(console.error);

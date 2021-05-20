@@ -19,7 +19,7 @@ const queue = message.client.distube.getQueue(message);
 	}
 
         let thing = new MessageEmbed()
-            .setColor(message.client.color)
+            .setColor(message.guild.me.displayHexColor)
             .setAuthor(message.client.user.username, message.client.user.displayAvatarURL())
             .setDescription("**Leave** the voice channel.")
             .setFooter(`Request by: ${message.author.tag}`, message.author.displayAvatarURL());

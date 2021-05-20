@@ -25,9 +25,9 @@ run: async(client, message ,args) => {
       queue.playing = false;
       queue.connection.dispatcher.pause(true);
       const paused = new MessageEmbed()
-        .setColor("#6ED590")
+        .setColor(message.guild.me.displayHexColor)
         .setTimestamp()
-        .setTitle("<a:yes:838026237255221318>•Succes Paused")
+        .setTitle("Succes Paused")
         .setDescription(`${message.author} ⏸ paused the music`);
 
       return queue.textChannel.send(paused).catch(console.error);

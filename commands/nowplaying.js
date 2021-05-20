@@ -28,7 +28,7 @@ module.exports = {
 
      let nowPlaying = new MessageEmbed()
 .setDescription(`**[${song.title}](${song.url})**`)
-            .setColor("#00FF00")
+            .setColor(message.guild.me.displayHexColor)
             .setThumbnail(`${song.thumbnail}`)
        if (song.duration > 0)
             nowPlaying.setFooter(

@@ -20,8 +20,8 @@ module.exports = {
                 .catch(console.error);
         if (!canModifyQueue(message.member)) return;
         const skipEmbed = new MessageEmbed()
-            .setColor("#6ED590")
-            .setTitle("<a:yes:838026237255221318>•Succes Skipped")
+            .setColor(message.guild.me.displayHexColor)
+            .setTitle("Succes Skipped")
             .setDescription(`${message.author} ⏭ skipped the song`);
 
         queue.playing = true;

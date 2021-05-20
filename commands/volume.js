@@ -46,8 +46,8 @@ run: async (client, message, args) => {
     queue.connection.dispatcher.setVolumeLogarithmic(args[0] / 100);
 
     const vol = new MessageEmbed()
-      .setColor("#6ED590")
-      .setTitle("<a:yes:838026237255221318>•Succes Set!")
+      .setColor(message.guild.me.displayHexColor)
+      .setTitle("Succes Set!")
       .setDescription(`Volume set to: **${args[0]}%**`);
 
     return queue.textChannel.send(vol).catch(console.error);

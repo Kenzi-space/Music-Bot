@@ -101,8 +101,8 @@ run: async (client, message, args) => {
       try {
         waitMessage = await message.channel.send(
           new MessageEmbed()
-            .setDescription("⏳fetching playlist...")
-            .setColor("#6ED590")
+            .setDescription("searching playlist...")
+            .setColor(message.guild.me.displayHexColor)
         );
         let playlistTrack = await getTracks(url);
         if (playlistTrack > MAX_PLAYLIST_SIZE) {
@@ -153,7 +153,7 @@ run: async (client, message, args) => {
       }
     } else if (scdl.isValidUrl(args[0])) {
       if (args[0].includes("/sets/")) {
-        message.channel.send("⌛ fetching the playlist...");
+        message.channel.send("searching the playlist...");
         playlist = await scdl.getSetInfo(args[0], SOUNDCLOUD_CLIENT_ID);
         videos = playlist.tracks.map((track) => ({
           title: track.title,

@@ -23,8 +23,8 @@ run: async (client, message, args) => {
 
     queue.loop = !queue.loop;
     const loop = new MessageEmbed()
-      .setColor("#6ED590")
-      .setTitle("<a:yes:838026237255221318>•Succes Loop")
+      .setColor(message.guild.me.displayHexColor)
+      .setTitle("Succes Loop")
       .setDescription(
         `Loop is now set to ${queue.loop ? "**on**" : "**off**"}`
       );

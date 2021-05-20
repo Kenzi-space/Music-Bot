@@ -28,8 +28,8 @@ run: async (client, message, args) => {
         queue.songs = songs;
         message.client.queue.set(message.guild.id, queue);
         const shuffled = new MessageEmbed()
-            .setColor("#6ED590")
-            .setTitle("<a:yes:838026237255221318>•Succes Shuffled")
+            .setColor(message.guild.me.displayHexColor)
+            .setTitle("Succes Shuffled")
             .setDescription(`${message.author} shuffled the queue`);
 
         queue.textChannel.send(shuffled).catch(console.error);

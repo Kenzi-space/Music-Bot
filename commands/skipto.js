@@ -49,8 +49,8 @@ run: async(client, message , args) => {
     queue.connection.dispatcher.end();
 
     const skipto = new MessageEmbed()
-      .setColor("#6ED590")
-      .setTitle("<a:yes:838026237255221318>•Succes Skipped!")
+      .setColor(message.guild.me.displayHexColor)
+      .setTitle("Succes Skipped!")
       .setDescription(`${message.author} skipped ${args[0] - 1} songs`);
 
     queue.textChannel.send(skipto).catch(console.error);

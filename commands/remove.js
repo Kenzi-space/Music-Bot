@@ -34,7 +34,7 @@ run: async (client, message, args) => {
         const song = queue.songs.splice(args[0] - 1, 1);
 
         const remov = new MessageEmbed()
-            .setColor(0x7289da)
+            .setColor(message.guild.me.displayHexColor)
             .setTitle("Song Removed from Queue")
             .setDescription(
                 `${message.author} removed **${song[0].title}** from the queue`
